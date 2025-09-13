@@ -1,7 +1,29 @@
 # CXL MCTP TESTY
 
 This is a test script to test the functionality of setting up the LD FAM.
-This script assumes you have Jonathan's fork of QEMU functioning.
+This script assumes you have Jonathan's fork of QEMU functioning and moking's 
+cxl-test-tool.
+
+```
+https://lore-kernel.gnuweeb.org/qemu-devel/20250408043051.430340-1-nifan.cxl@gmail.com/
+Part of .var.config, see run_vars.example
+QEMU_ROOT=~/cxl/jic/qemu
+# for FM VM
+FM_KERNEL_ROOT=~/cxl/linux-v6.6-rc6/
+FM_QEMU_IMG=~/cxl/images/qemu-image-fm.img
+
+# for Target VM
+KERNEL_ROOT=~/cxl/linux-dcd/
+QEMU_IMG=~/cxl/images/qemu-image.img
+
+command:
+1. cxl-tool.py --run -T FM_TARGET
+2. cxl-tool.py --attach-VM -T FM_CLIENT
+3. cxl-tool.py --install-libcxlmi-fm
+4. cxl-tool.py --setup-mctp-fm
+5. cxl-tool.py --login-fm (run the test program with libcxlmi)
+```
+
 Use this topology:
 
 ```
