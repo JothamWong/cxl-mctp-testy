@@ -46,3 +46,6 @@ Use this topology:
  -device i2c_mctp_cxl,bus=aspeed.i2c.bus.0,address=6,target=cxl-pmem2 \
  -device virtio-rng-pci,bus=swport1
 ```
+
+Unfortunately, for reasons unknown to me, the querying of the LD0 is 
+non-deterministic and passes/fails randomly.
